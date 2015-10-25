@@ -5,6 +5,7 @@ Make a @font-face CSS file and Base64 string from an OpenType or TrueType file. 
 Usage (command line)
 --------------------
 ```php fontface2base64.php </path/to/font/file.[otf|ttf]> <font-name> <font-style[italic|normal]> <font-weight[300|400|700]>```
+
 There's little to no validation built into the script because you know what you're doing.
 
 OTF or TTF?
