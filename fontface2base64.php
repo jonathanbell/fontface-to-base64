@@ -24,6 +24,9 @@ if (!file_exists($fontFile)) {
   exit();
 }
 
-$str = '@font-face {'.PHP_EOL.'  font-family:\''.$fontName.'\';font-style:'.$fontStyle.';font-weight:'.$fontWeight.';src:url(data:font/'.$fontType.';base64,'.base64_encode(file_get_contents($fontFile)).')'.PHP_EOL.'}'.PHP_EOL;
+$font_face = '@font-face {'.PHP_EOL.'  font-family:\''.$fontName.'\';font-style:'.$fontStyle.';font-weight:'.$fontWeight.';src:url(data:font/'.$fontType.';base64,'.base64_encode(file_get_contents($fontFile)).')'.PHP_EOL.'}'.PHP_EOL;
 
-file_put_contents('./'.$fontName.'.css', $str); 
+$html = '<html><head><link rel="stylesheet" type="text/css" href="'.$fontName.'.css"><style>body{font-family: \''.$fontName.'\';font-size: 3rem;}</style></head><body>AbCdEfGhIjKlMnOpQrStUvWxYz</body></html>';
+
+file_put_contents('./'.$fontName.'.css', $font_face);
+file_put_contents('./'.$fontName.'-example.html', $html);
