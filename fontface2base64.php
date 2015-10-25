@@ -1,9 +1,9 @@
 <?php
 
-// ***USAGE (command line):
-// php fontface2base64.php </path/to/font/file.[otf|ttf]> <font-name> <font-style[italic|normal]> <font-weight[300|400|700]>
-// OTF or TTF? http://superuser.com/questions/96390/difference-between-otf-open-type-or-ttf-true-type-font-formats
-// There's no validation because you know what you're doing..
+if (!php_sapi_name() === 'cli') {
+  echo 'This PHP script is meant to be run from the PHP command line, not in browser.';
+  exit();
+}
 
 $fontFile = $argv[1]; // $argv[0] is the call to the script itself
 $fontName = $argv[2];
