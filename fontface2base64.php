@@ -30,7 +30,9 @@ if (!file_exists($fontFile)) {
 }
 
 $font_face = '@font-face {'.PHP_EOL.'  font-family:\''.$fontName.'\';font-style:'.$fontStyle.';';
-if ($fontWeight !== null) {
+if ($fontWeight == null || $fontWeight == 'null' || !is_numeric($fontWeight)) {
+  $font_face .= '';
+} else {
   $font_face .= 'font-weight:'.$fontWeight.';';
 }
 $font_face .= 'src:url(data:font/'.$fontType.';base64,'.base64_encode(file_get_contents($fontFile)).')'.PHP_EOL.'}'.PHP_EOL;
